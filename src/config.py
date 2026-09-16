@@ -1,3 +1,5 @@
+"""Central project paths, environment settings, and extraction field names."""
+
 import os
 from pathlib import Path
 from dotenv import load_dotenv

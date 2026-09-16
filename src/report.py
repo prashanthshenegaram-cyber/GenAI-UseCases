@@ -1,3 +1,5 @@
+"""Generate CSV and Markdown reports from stored evaluation results."""
+
 import csv
 import json
 from pathlib import Path
@@ -8,18 +10,21 @@ from .config import BASE_DIR, GROUND_TRUTH_DIR, OUTPUTS_DIR
 RESULTS_DIR = BASE_DIR / "results"
 
 
+# Read a JSON file and return an empty object when it does not exist.
 def load_json(path: Path) -> Dict[str, Any]:
     if not path.exists():
         return {}
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# Retrieve aggregate metrics for one prompt version.
 def version_metrics(version: str) -> Dict[str, Any]:
     path = RESULTS_DIR / f"{version}_results.json"
     loaded = load_json(path)
     return loaded.get("metrics", {})
 
 
+# Write the cross-version metrics table as a CSV artifact.
 def generate_accuracy_csv() -> Path:
     rows = []
     for version in ["v1", "v2", "v3", "v4", "v5"]:
@@ -46,6 +51,7 @@ def generate_accuracy_csv() -> Path:
     return csv_path
 
 
+# Write the measured evaluation summary as Markdown.
 def generate_evaluation_report() -> Path:
     """Generate a markdown evaluation report using measured results only."""
     dataset_size = len(list(GROUND_TRUTH_DIR.glob("*.json")))
@@ -101,6 +107,7 @@ def generate_evaluation_report() -> Path:
     return report_path
 
 
+# Write the prompt-improvement comparison report from stored metrics.
 def generate_what_moved_the_needle() -> Path:
     lines = [
         "# What Moved the Needle",

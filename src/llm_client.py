@@ -1,3 +1,5 @@
+"""Provider abstraction and deterministic local fallback for model responses."""
+
 import json
 import os
 import logging
@@ -15,6 +17,7 @@ class BaseLLMClient(ABC):
     """Provider abstraction for LLM calls."""
 
     @abstractmethod
+    # Define the provider contract used by the extraction pipeline.
     def generate(self, prompt: str, *, model: str = DEFAULT_MODEL,
                    temperature: float = DEFAULT_TEMPERATURE,
                    max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS) -> str:
@@ -24,6 +27,7 @@ class BaseLLMClient(ABC):
 class GeminiCompatibleClient(BaseLLMClient):
     """A simple Gemini-compatible adapter that can be swapped with a real provider later."""
 
+    # Create a client and obtain the provider key from the environment.
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or os.getenv("GEMINI_API_KEY")
 
@@ -44,10 +48,12 @@ class GeminiCompatibleClient(BaseLLMClient):
         raise NotImplementedError("Gemini API integration is not enabled in this workspace example.")
 
 
+# Return the configured provider adapter used by the extractor.
 def get_llm_client() -> BaseLLMClient:
     return GeminiCompatibleClient()
 
 
+# Produce deterministic JSON from local invoice text when no API key is present.
 def mock_generate_response(prompt: str) -> str:
     """Return a JSON object that respects sample fields for a text-only demo.
 

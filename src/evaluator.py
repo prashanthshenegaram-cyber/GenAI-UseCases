@@ -1,3 +1,5 @@
+"""Compare predictions with ground truth and calculate extraction metrics."""
+
 import json
 import logging
 from pathlib import Path
@@ -8,12 +10,14 @@ from .config import FIELDS, GROUND_TRUTH_DIR, OUTPUTS_DIR
 logger = logging.getLogger(__name__)
 
 
+# Normalize text values for callers that need case-insensitive comparisons.
 def normalize_string(value: Optional[str]) -> Optional[str]:
     if value is None:
         return None
     return str(value).strip().lower()
 
 
+# Compare every required field and classify matches, misses, and hallucinations.
 def compare_fields(pred: Dict[str, Any], truth: Dict[str, Any]) -> Dict[str, Any]:
     """Return field-level evaluation summary."""
     report = {}
@@ -36,6 +40,7 @@ def compare_fields(pred: Dict[str, Any], truth: Dict[str, Any]) -> Dict[str, Any
     return report
 
 
+# Calculate field-level quality and tax-specific hallucination metrics.
 def evaluate_prediction(pred: Dict[str, Any], truth: Dict[str, Any]) -> Dict[str, Any]:
     metrics = {
         "total_fields": len(FIELDS),
@@ -96,14 +101,17 @@ def evaluate_prediction(pred: Dict[str, Any], truth: Dict[str, Any]) -> Dict[str
     return metrics
 
 
+# Load one ground-truth JSON document from disk.
 def load_ground_truth(path: Path) -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# Load one generated prediction JSON document from disk.
 def load_prediction(path: Path) -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# Evaluate all available invoice predictions for a selected prompt version.
 def evaluate_all(prompt_version: str = "v5") -> Dict[str, Any]:
     """Evaluate all invoice predictions against local ground_truth files."""
     results = {}
@@ -118,6 +126,7 @@ def evaluate_all(prompt_version: str = "v5") -> Dict[str, Any]:
     return results
 
 
+# Average per-invoice metrics into a dataset-level summary.
 def aggregate_metrics(result_set: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
     """Aggregate a set of per-invoice metrics into a single metrics object."""
     if not result_set:

@@ -1,3 +1,5 @@
+"""Command-line interface for extraction, evaluation, and report generation."""
+
 import argparse
 import json
 import logging
@@ -14,6 +16,7 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message
 logger = logging.getLogger(__name__)
 
 
+# Extract one invoice, apply v5 verification when selected, and save JSON.
 def extract_command(args):
     invoice_path = Path(args.input)
     result = extract_file(invoice_path, prompt_version=args.prompt_version)
@@ -27,6 +30,7 @@ def extract_command(args):
     print(f"Extraction written to {out_path}")
 
 
+# Evaluate one prompt version and save aggregate plus invoice-level metrics.
 def evaluate_command(args):
     # Evaluate predictions for a given version.
     result = evaluate_all(args.prompt_version)
@@ -40,6 +44,7 @@ def evaluate_command(args):
     print(f"Evaluation written to {out_path}")
 
 
+# Evaluate and save results for every prompt version from v1 through v5.
 def evaluate_all_command(args):
     for version in ["v1", "v2", "v3", "v4", "v5"]:
         result = evaluate_all(version)
@@ -51,6 +56,7 @@ def evaluate_all_command(args):
         print(f"Wrote {out_path}")
 
 
+# Generate a Markdown summary from the available version result files.
 def report_command(args):
     # Create a simple markdown report based on available results.
     # Keep a version argument for compatibility with the CLI invocation pattern.
@@ -82,6 +88,7 @@ def report_command(args):
     print(f"Wrote {report_path}")
 
 
+# Build the argparse command tree used by the project CLI.
 def build_parser():
     parser = argparse.ArgumentParser(description="Invoice / Receipt Field Extractor")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -105,6 +112,7 @@ def build_parser():
     return parser
 
 
+# Parse command-line arguments and dispatch to the selected command handler.
 def main(argv=None):
     parser = build_parser()
     args = parser.parse_args(argv)

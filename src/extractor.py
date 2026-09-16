@@ -1,3 +1,5 @@
+"""Load prompts and invoice text, call the model adapter, and validate JSON."""
+
 import json
 import logging
 from pathlib import Path
@@ -11,9 +13,11 @@ logger = logging.getLogger(__name__)
 
 
 class ExtractionError(Exception):
+    # Identifies failures while parsing or validating model extraction output.
     pass
 
 
+# Load one versioned prompt template from the prompts directory.
 def load_prompt(version: str = DEFAULT_PROMPT_VERSION) -> str:
     path = PROMPTS_DIR / f"{version}.txt"
     if not path.exists():
@@ -21,6 +25,7 @@ def load_prompt(version: str = DEFAULT_PROMPT_VERSION) -> str:
     return path.read_text(encoding="utf-8")
 
 
+# Read the source invoice text and raise a clear error when it is missing.
 def read_invoice(text_path: str | Path) -> str:
     path = Path(text_path)
     if not path.exists():
@@ -28,6 +33,7 @@ def read_invoice(text_path: str | Path) -> str:
     return path.read_text(encoding="utf-8")
 
 
+# Run prompt insertion, provider generation, JSON parsing, and schema validation.
 def extract_from_text(invoice_text: str, prompt_version: str = DEFAULT_PROMPT_VERSION,
                        model: str = DEFAULT_MODEL,
                        temperature: float = DEFAULT_TEMPERATURE,
@@ -61,6 +67,7 @@ def extract_from_text(invoice_text: str, prompt_version: str = DEFAULT_PROMPT_VE
     return result.model_dump()
 
 
+# Combine file reading and text extraction for the CLI and demo callers.
 def extract_file(input_path: str | Path, prompt_version: str = DEFAULT_PROMPT_VERSION) -> Dict[str, Any]:
     invoice_text = read_invoice(input_path)
     return extract_from_text(invoice_text, prompt_version=prompt_version)

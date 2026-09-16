@@ -1,3 +1,5 @@
+"""Verify v5 values against invoice text and null unsupported fields."""
+
 import json
 import logging
 from typing import Any, Dict
@@ -9,9 +11,11 @@ logger = logging.getLogger(__name__)
 
 
 class VerificationError(Exception):
+    # Identifies failures in a future provider-backed verification stage.
     pass
 
 
+# Keep v5 values only when the source invoice provides supporting evidence.
 def verify_extraction(invoice_text: str, extracted: Dict[str, Any],
                        prompt_version: str = DEFAULT_PROMPT_VERSION,
                        model: str = DEFAULT_MODEL,
