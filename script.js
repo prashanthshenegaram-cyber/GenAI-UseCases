@@ -22,26 +22,50 @@ cards.forEach((card, index) => {
 
 const fileInput = document.getElementById('invoice-file');
 const fileName = document.getElementById('file-name');
+const invoiceSample = document.getElementById('invoice-sample');
+const promptVersion = document.getElementById('prompt-version');
+const promptStatus = document.getElementById('prompt-status');
 const analyzeButton = document.getElementById('analyze-button');
 const jsonOutput = document.getElementById('json-output');
 const statusBadge = document.getElementById('status-badge');
 
+promptVersion.addEventListener('change', () => {
+  promptStatus.textContent = `Selected prompt: ${promptVersion.value} (${promptVersion.options[promptVersion.selectedIndex].text.split(' - ')[1]})`;
+});
+
+invoiceSample.addEventListener('change', async () => {
+  if (!invoiceSample.value) return;
+  try {
+    const response = await fetch(`data/invoices/${invoiceSample.value}`);
+    if (!response.ok) throw new Error('Invoice sample could not be loaded.');
+    const text = await response.text();
+    fileName.textContent = invoiceSample.value;
+    fileInput.value = '';
+    fileInput.selectedSampleText = text;
+    statusBadge.textContent = 'Ready';
+  } catch (error) {
+    statusBadge.textContent = 'Load error';
+    fileName.textContent = error.message;
+  }
+});
+
 fileInput.addEventListener('change', () => {
   if (fileInput.files.length) {
     fileName.textContent = fileInput.files[0].name;
+    invoiceSample.value = '';
+    fileInput.selectedSampleText = '';
   } else {
     fileName.textContent = 'No file selected';
   }
 });
 
 analyzeButton.addEventListener('click', async () => {
-  if (!fileInput.files.length) {
+  if (!fileInput.files.length && !fileInput.selectedSampleText) {
     statusBadge.textContent = 'No file';
     return;
   }
 
-  const file = fileInput.files[0];
-  const text = await file.text();
+  const text = fileInput.selectedSampleText || await fileInput.files[0].text();
   const lower = text.toLowerCase();
   const extracted = {
     invoice_number: inferMatch(text, /invoice\s*#?\s*([a-z0-9-]+)/i),
@@ -59,7 +83,7 @@ analyzeButton.addEventListener('click', async () => {
   };
 
   jsonOutput.textContent = JSON.stringify(extracted, null, 2);
-  statusBadge.textContent = 'Extracted';
+  statusBadge.textContent = `Extracted ${promptVersion.value}`;
 });
 
 function inferMatch(text, regex) {

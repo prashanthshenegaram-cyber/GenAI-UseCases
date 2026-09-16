@@ -142,6 +142,31 @@
           </button>
         </div>
 
+        <div class="selection-controls">
+          <label class="selection-control">
+            <span>Invoice sample</span>
+            <select id="invoice-sample">
+              <option value="">Choose a repository invoice</option>
+              <option value="invoice_01.txt">invoice_01.txt</option>
+              <option value="invoice_02.txt">invoice_02.txt</option>
+              <option value="invoice_03.txt">invoice_03.txt</option>
+              <option value="invoice_04.txt">invoice_04.txt</option>
+              <option value="invoice_05.txt">invoice_05.txt</option>
+            </select>
+          </label>
+          <label class="selection-control">
+            <span>Prompt version</span>
+            <select id="prompt-version">
+              <option value="v1">v1 - Basic extraction</option>
+              <option value="v2">v2 - Abstention guidance</option>
+              <option value="v3">v3 - Schema normalization</option>
+              <option value="v4">v4 - Few-shot examples</option>
+              <option value="v5" selected>v5 - Extraction + verification</option>
+            </select>
+          </label>
+        </div>
+        <div class="prompt-status" id="prompt-status">Selected prompt: v5</div>
+
         <div class="upload-layout">
           <div class="dropzone">
             <label for="invoice-file" class="drop-label">

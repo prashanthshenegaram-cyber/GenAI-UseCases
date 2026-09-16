@@ -222,9 +222,15 @@ Open:
 http://localhost:8000/
 ```
 
-Choose an invoice `.txt` file from `data/invoices/`, click **Analyze**, and show the JSON preview.
+Use the two selectors in the upload panel:
 
-The current browser page is a static preview UI. It demonstrates upload and JSON display locally; the authoritative prompt-driven extraction and evaluation flow is the Python CLI described above.
+1. In **Invoice sample**, choose `invoice_01.txt` through `invoice_05.txt`, or use the upload area to choose an invoice file from your computer.
+2. In **Prompt version**, choose `v1`, `v2`, `v3`, `v4`, or `v5`.
+3. Click **Analyze**.
+4. Confirm the selected prompt is shown under the selectors and in the result status badge.
+5. Show the JSON preview.
+
+The current browser page is a static preview UI. It demonstrates invoice selection, prompt selection, and JSON display locally. The authoritative prompt-driven extraction and evaluation flow is still the Python CLI described above; use the CLI commands when you need the actual versioned prompt output and measured evaluation files.
 
 ## Code-to-workflow map
 
