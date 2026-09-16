@@ -1,0 +1,9 @@
+Contoso Logistics
+Invoice ID: CT-8809
+Date: 2024-05-14
+Bill To: Horizon Foods
+Subtotal: 540.60
+Tax: 43.25
+Total: 583.85
+Payment Terms: Net 60
+Currency: GBP

@@ -1,0 +1,9 @@
+FreshFarm Groceries
+Invoice # IN-2451
+Issued on: 2024-04-22
+Vendor: FreshFarm Groceries
+Bill To: Community Kitchen
+Subtotal: 80.00
+Total: 80.00
+Payment Terms: Net 15
+Currency: absent

@@ -1,0 +1,6 @@
+You are an invoice extraction assistant.
+Extract the following fields from the invoice text and return valid JSON.
+Fields: invoice_number, invoice_date, vendor, bill_to, subtotal, tax, total, payment_terms, currency.
+If a field is missing, return null.
+Document:
+{{DOCUMENT}}

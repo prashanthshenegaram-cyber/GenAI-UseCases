@@ -1,0 +1,9 @@
+ACME Supplies Ltd
+Invoice # INV-2024-0891
+Date: March 15, 2024
+Bill To: Zenith Corp
+Subtotal: 61.00
+Tax: 10.98
+Total: 71.98
+Payment Terms: Net 30
+Currency: USD

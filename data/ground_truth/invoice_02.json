@@ -1,0 +1,14 @@
+{
+  "invoice_number": "INV-2024-1002",
+  "invoice_date": "2024-02-10",
+  "vendor": "Northline Books",
+  "bill_to": "Creative Reuse Studio",
+  "subtotal": 125.0,
+  "tax": 12.5,
+  "total": 137.5,
+  "payment_terms": "Due on receipt",
+  "currency": "EUR",
+  "_confidence": {
+    "currency": "explicit"
+  }
+}

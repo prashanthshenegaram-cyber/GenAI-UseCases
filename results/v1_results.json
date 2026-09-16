@@ -1,0 +1,327 @@
+{
+  "metrics": {
+    "precision": 1.0,
+    "recall": 0.507936507936508,
+    "f1": 0.6430769230769231,
+    "accuracy": 0.4888888888888888,
+    "hallucinations": 0,
+    "tax_hallucinations": 0
+  },
+  "invoice_metrics": {
+    "invoice_01": {
+      "total_fields": 9,
+      "matches": 9,
+      "hallucinations": 0,
+      "misses": 0,
+      "correct_absence": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "accuracy": 1.0,
+      "tax_absence_accuracy": 0.0,
+      "tax_hallucination_count": 0,
+      "tax_hallucination_rate": 0.0,
+      "field_report": {
+        "invoice_number": {
+          "status": "match",
+          "pred": "INV-2024-0891",
+          "truth": "INV-2024-0891"
+        },
+        "invoice_date": {
+          "status": "match",
+          "pred": "2024-03-15",
+          "truth": "2024-03-15"
+        },
+        "vendor": {
+          "status": "match",
+          "pred": "ACME Supplies Ltd",
+          "truth": "ACME Supplies Ltd"
+        },
+        "bill_to": {
+          "status": "match",
+          "pred": "Zenith Corp",
+          "truth": "Zenith Corp"
+        },
+        "subtotal": {
+          "status": "match",
+          "pred": 61.0,
+          "truth": 61.0
+        },
+        "tax": {
+          "status": "match",
+          "pred": 10.98,
+          "truth": 10.98
+        },
+        "total": {
+          "status": "match",
+          "pred": 71.98,
+          "truth": 71.98
+        },
+        "payment_terms": {
+          "status": "match",
+          "pred": "Net 30",
+          "truth": "Net 30"
+        },
+        "currency": {
+          "status": "match",
+          "pred": "USD",
+          "truth": "USD"
+        }
+      },
+      "hallucination_fields": [],
+      "tax_hallucination_fields": []
+    },
+    "invoice_02": {
+      "total_fields": 9,
+      "matches": 3,
+      "hallucinations": 0,
+      "misses": 6,
+      "correct_absence": 0,
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "f1": 0.5,
+      "accuracy": 0.3333333333333333,
+      "tax_absence_accuracy": 0.0,
+      "tax_hallucination_count": 0,
+      "tax_hallucination_rate": 0.0,
+      "field_report": {
+        "invoice_number": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "INV-2024-1002"
+        },
+        "invoice_date": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "2024-02-10"
+        },
+        "vendor": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Northline Books"
+        },
+        "bill_to": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Creative Reuse Studio"
+        },
+        "subtotal": {
+          "status": "match",
+          "pred": 61.0,
+          "truth": 125.0
+        },
+        "tax": {
+          "status": "match",
+          "pred": 10.98,
+          "truth": 12.5
+        },
+        "total": {
+          "status": "match",
+          "pred": 71.98,
+          "truth": 137.5
+        },
+        "payment_terms": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Due on receipt"
+        },
+        "currency": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "EUR"
+        }
+      },
+      "hallucination_fields": [],
+      "tax_hallucination_fields": []
+    },
+    "invoice_03": {
+      "total_fields": 9,
+      "matches": 3,
+      "hallucinations": 0,
+      "misses": 4,
+      "correct_absence": 2,
+      "precision": 1.0,
+      "recall": 0.42857142857142855,
+      "f1": 0.6,
+      "accuracy": 0.3333333333333333,
+      "tax_absence_accuracy": 1.0,
+      "tax_hallucination_count": 0,
+      "tax_hallucination_rate": 0.0,
+      "field_report": {
+        "invoice_number": {
+          "status": "match",
+          "pred": "IN-2451",
+          "truth": "IN-2451"
+        },
+        "invoice_date": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "2024-04-22"
+        },
+        "vendor": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "FreshFarm Groceries"
+        },
+        "bill_to": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Community Kitchen"
+        },
+        "subtotal": {
+          "status": "match",
+          "pred": 61.0,
+          "truth": 80.0
+        },
+        "tax": {
+          "status": "correct_absence",
+          "pred": null,
+          "truth": null
+        },
+        "total": {
+          "status": "match",
+          "pred": 71.98,
+          "truth": 80.0
+        },
+        "payment_terms": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Net 15"
+        },
+        "currency": {
+          "status": "correct_absence",
+          "pred": null,
+          "truth": null
+        }
+      },
+      "hallucination_fields": [],
+      "tax_hallucination_fields": []
+    },
+    "invoice_04": {
+      "total_fields": 9,
+      "matches": 4,
+      "hallucinations": 0,
+      "misses": 5,
+      "correct_absence": 0,
+      "precision": 1.0,
+      "recall": 0.4444444444444444,
+      "f1": 0.6153846153846153,
+      "accuracy": 0.4444444444444444,
+      "tax_absence_accuracy": 0.0,
+      "tax_hallucination_count": 0,
+      "tax_hallucination_rate": 0.0,
+      "field_report": {
+        "invoice_number": {
+          "status": "match",
+          "pred": "NUMBER",
+          "truth": "GLE-4401"
+        },
+        "invoice_date": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "2024-03-12"
+        },
+        "vendor": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "GreenLine Energy"
+        },
+        "bill_to": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "City Solar Labs"
+        },
+        "subtotal": {
+          "status": "match",
+          "pred": 61.0,
+          "truth": 300.0
+        },
+        "tax": {
+          "status": "match",
+          "pred": 10.98,
+          "truth": 27.0
+        },
+        "total": {
+          "status": "match",
+          "pred": 71.98,
+          "truth": 327.0
+        },
+        "payment_terms": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Net 45"
+        },
+        "currency": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "INR"
+        }
+      },
+      "hallucination_fields": [],
+      "tax_hallucination_fields": []
+    },
+    "invoice_05": {
+      "total_fields": 9,
+      "matches": 3,
+      "hallucinations": 0,
+      "misses": 6,
+      "correct_absence": 0,
+      "precision": 1.0,
+      "recall": 0.3333333333333333,
+      "f1": 0.5,
+      "accuracy": 0.3333333333333333,
+      "tax_absence_accuracy": 0.0,
+      "tax_hallucination_count": 0,
+      "tax_hallucination_rate": 0.0,
+      "field_report": {
+        "invoice_number": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "CT-8809"
+        },
+        "invoice_date": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "2024-05-14"
+        },
+        "vendor": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Contoso Logistics"
+        },
+        "bill_to": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Horizon Foods"
+        },
+        "subtotal": {
+          "status": "match",
+          "pred": 61.0,
+          "truth": 540.6
+        },
+        "tax": {
+          "status": "match",
+          "pred": 10.98,
+          "truth": 43.25
+        },
+        "total": {
+          "status": "match",
+          "pred": 71.98,
+          "truth": 583.85
+        },
+        "payment_terms": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "Net 60"
+        },
+        "currency": {
+          "status": "missed_extraction",
+          "pred": null,
+          "truth": "GBP"
+        }
+      },
+      "hallucination_fields": [],
+      "tax_hallucination_fields": []
+    }
+  }
+}

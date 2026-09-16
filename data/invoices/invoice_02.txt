@@ -1,0 +1,9 @@
+Northline Books
+Invoice No: INV-2024-1002
+Date: 2024-02-10
+Bill To: Creative Reuse Studio
+Subtotal: 125.00
+Tax: 12.50
+Total: 137.50
+Payment Terms: Due on receipt
+Currency: EUR

@@ -1,0 +1,14 @@
+{
+  "invoice_number": "IN-2451",
+  "invoice_date": null,
+  "vendor": null,
+  "bill_to": null,
+  "subtotal": 61.0,
+  "tax": null,
+  "total": 71.98,
+  "payment_terms": null,
+  "currency": null,
+  "confidence": {
+    "currency": "absent"
+  }
+}

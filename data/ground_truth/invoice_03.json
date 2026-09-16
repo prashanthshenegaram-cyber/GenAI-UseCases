@@ -1,0 +1,14 @@
+{
+  "invoice_number": "IN-2451",
+  "invoice_date": "2024-04-22",
+  "vendor": "FreshFarm Groceries",
+  "bill_to": "Community Kitchen",
+  "subtotal": 80.0,
+  "tax": null,
+  "total": 80.0,
+  "payment_terms": "Net 15",
+  "currency": null,
+  "_confidence": {
+    "currency": "absent"
+  }
+}
