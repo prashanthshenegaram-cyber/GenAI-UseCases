@@ -1,0 +1,722 @@
+{
+  "total_questions": 15,
+  "overall_accuracy": 0.4666666666666667,
+  "accuracy_by_category": {
+    "table-cell": 0.6666666666666666,
+    "image": 0.0,
+    "text": 1.0,
+    "excel": 0.2857142857142857
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "question": "What is the operating temperature range?",
+      "category": "table-cell",
+      "expected": "-10 C to 55 C",
+      "source": "spec.pdf",
+      "answer": "Operating Temperature Table: Property | Operating Temperature | Value | -10 C to 55 C Operating Temperature | -10 C to 55 C",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "table_id": "table-1",
+          "chunk_type": "table"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q02",
+      "question": "What voltage does the device use?",
+      "category": "table-cell",
+      "expected": "220V",
+      "source": "spec.pdf",
+      "answer": "Device Specification Voltage Voltage | 220V",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "table_id": "table-1",
+          "chunk_type": "table"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q03",
+      "question": "What is the device weight?",
+      "category": "table-cell",
+      "expected": "4.5 kg",
+      "source": "spec.pdf",
+      "answer": "Device Specification Weight",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q04",
+      "question": "What is the warranty period?",
+      "category": "text",
+      "expected": "two-year",
+      "source": "spec.pdf",
+      "answer": "two-year warranty.",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q05",
+      "question": "What is the device designed for?",
+      "category": "text",
+      "expected": "industrial monitoring",
+      "source": "spec.pdf",
+      "answer": "Device Specification The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q06",
+      "question": "Which region had the highest Q3 sales?",
+      "category": "excel",
+      "expected": "West|4200",
+      "source": "sales.xlsx",
+      "answer": "I couldn't find that information in the provided documents.",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[spec.pdf, page 1]"
+      ],
+      "retrieved": [
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        },
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q07",
+      "question": "What were West Q1 sales?",
+      "category": "excel",
+      "expected": "West|3500",
+      "source": "sales.xlsx",
+      "answer": "I couldn't find that information in the provided documents.",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q08",
+      "question": "What were South Q2 sales?",
+      "category": "excel",
+      "expected": "South|3400",
+      "source": "sales.xlsx",
+      "answer": "Region: South, Q1: 3000, Q2: 3400, Q3: 3700",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "retrieved": [
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q09",
+      "question": "How much stock does the Sensor have?",
+      "category": "excel",
+      "expected": "Sensor|120",
+      "source": "sales.xlsx",
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "table_id": "table-1",
+          "chunk_type": "table"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q10",
+      "question": "What category is the Gateway?",
+      "category": "excel",
+      "expected": "Gateway|Networking",
+      "source": "sales.xlsx",
+      "answer": "I couldn't find that information in the provided documents.",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q11",
+      "question": "What are East Q1 sales?",
+      "category": "excel",
+      "expected": "East|2900",
+      "source": "sales.xlsx",
+      "answer": "I couldn't find that information in the provided documents.",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "retrieved": [
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q12",
+      "question": "What were North Q3 sales?",
+      "category": "excel",
+      "expected": "North|3100",
+      "source": "sales.xlsx",
+      "answer": "Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "retrieved": [
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Products",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q13",
+      "question": "What are the Q3 chart sales for West?",
+      "category": "image",
+      "expected": "West|4200",
+      "source": "spec.pdf",
+      "answer": "I couldn't find that information in the provided documents.",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": false
+    },
+    {
+      "id": "Q14",
+      "question": "What is the battery capacity?",
+      "category": "text",
+      "expected": "I couldn't find",
+      "source": "none",
+      "answer": "I couldn't find that information in the provided documents.",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": true
+    },
+    {
+      "id": "Q15",
+      "question": "Which region had the highest Q3 sales in the chart?",
+      "category": "image",
+      "expected": "West|4200",
+      "source": "spec.pdf",
+      "answer": "Region: North, Q1: 2500, Q2: 2800, Q3: 3100 Region: South, Q1: 3000, Q2: 3400, Q3: 3700 Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "retrieved": [
+        {
+          "source": "spec.pdf",
+          "file_type": "pdf",
+          "page": 1,
+          "chunk_type": "text"
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 2
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 3
+        },
+        {
+          "source": "sales.xlsx",
+          "file_type": "xlsx",
+          "sheet": "Sales",
+          "chunk_type": "excel_row",
+          "serialization": "row_text",
+          "row": 4
+        }
+      ],
+      "success": false
+    }
+  ]
+}
