@@ -20,7 +20,10 @@ C:/Users/prashanth.shenegaram/AppData/Local/Programs/Python/Python313/python.exe
 C:/Users/prashanth.shenegaram/AppData/Local/Programs/Python/Python313/python.exe main.py evaluate
 C:/Users/prashanth.shenegaram/AppData/Local/Programs/Python/Python313/python.exe main.py excel-benchmark
 C:/Users/prashanth.shenegaram/AppData/Local/Programs/Python/Python313/python.exe -m pytest
+C:/Users/prashanth.shenegaram/AppData/Local/Programs/Python/Python313/python.exe -m streamlit run web_app.py
 ```
+
+The Streamlit browser app opens at `http://localhost:8501`. Upload one or more PDF or Excel files in the sidebar, click **Ingest documents**, and then ask questions to see grounded answers, citations, and the retrieved evidence.
 
 Use `--chunking-strategy fixed|recursive|section-aware`, `--serialization row_text|markdown_table|column_wise`, `--top-k`, and `--similarity-threshold`. Configuration can also come from `.env`/environment variables shown in `.env.example`.
 
