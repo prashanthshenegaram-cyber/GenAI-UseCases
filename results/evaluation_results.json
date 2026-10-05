@@ -1,0 +1,2288 @@
+{
+  "gate_status": "FAIL",
+  "total_questions": 20,
+  "question_counts": {
+    "easy": 8,
+    "table_cell": 6,
+    "unanswerable": 6
+  },
+  "metrics": {
+    "context_precision": 0.9702380952380952,
+    "context_recall": 1.0,
+    "hit_rate": 1.0,
+    "faithfulness": 0.7,
+    "answer_relevance": 0.7,
+    "correct_refusal_rate": 0.0,
+    "llm_as_judge_score": null
+  },
+  "thresholds": {
+    "faithfulness": 0.8,
+    "answer_relevance": 0.8,
+    "context_precision": 0.75,
+    "context_recall": 0.75,
+    "hit_rate": 0.8,
+    "correct_refusal_rate": 0.9
+  },
+  "threshold_status": {
+    "faithfulness": false,
+    "answer_relevance": false,
+    "context_precision": true,
+    "context_recall": true,
+    "hit_rate": true,
+    "correct_refusal_rate": false
+  },
+  "judge_status": "not_configured",
+  "ragas": {
+    "status": "disabled",
+    "reason": "Set RAG_GATE_USE_RAGAS=true to request optional RAGAS scoring."
+  },
+  "failure_count": 6,
+  "top_5_failures": [
+    {
+      "id": "U01",
+      "type": "unanswerable",
+      "question": "What is the battery capacity of the Acme Sensor?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a Product: Sensor, Category: Monitoring, Stock: 120",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Products sheet, row 4]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Product: Mount, Category: Accessory, Stock: 240"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.5297210334208826,
+          "distance": 0.8877860928838439
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4647680946461457,
+          "distance": 1.1516106882537982
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.44580534656573295,
+          "distance": 1.2431314646706517
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.43485694145368303,
+          "distance": 1.2996068469255673
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U02",
+      "type": "unanswerable",
+      "question": "What is the device's manufacturing date?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "Device Specification",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 3]"
+      ],
+      "contexts": [
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Gateway, Category: Networking, Stock: 55"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.46635028195372424,
+          "distance": 1.1443109154144986
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.46385890148870607,
+          "distance": 1.1558279830151061
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.4599758973044451,
+          "distance": 1.174026956325775
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4467513721599831,
+          "distance": 1.2383814853553416
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U03",
+      "type": "unanswerable",
+      "question": "Who is the chief executive officer of Acme?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.47034718765397343,
+          "distance": 1.12608903858416
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.43722511206856735,
+          "distance": 1.2871513378288668
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.43591104266449093,
+          "distance": 1.2940460372087275
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4354979926828479,
+          "distance": 1.296221835236452
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U04",
+      "type": "unanswerable",
+      "question": "What were North's Q4 sales?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 5]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "contexts": [
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+        "Region: West, Q1: 3500, Q2: 3900, Q3: 4200",
+        "Region: South, Q1: 3000, Q2: 3400, Q3: 3700"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4811837398619062,
+          "distance": 1.0782082127026729
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4693049711374884,
+          "distance": 1.1308105848020906
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 5
+          },
+          "score": 0.46808891876624403,
+          "distance": 1.1363462365990844
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4674489811555834,
+          "distance": 1.1392708943934244
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U05",
+      "type": "unanswerable",
+      "question": "What is the retail price of the Gateway?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "Product: Gateway, Category: Networking, Stock: 55",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "contexts": [
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.5168623719135222,
+          "distance": 0.9347510175635554
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.45636184224565335,
+          "distance": 1.19124367427221
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.45098797224013815,
+          "distance": 1.2173540350373884
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.439490886691211,
+          "distance": 1.2753600365383826
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    }
+  ],
+  "results": [
+    {
+      "id": "E01",
+      "type": "easy",
+      "question": "What is the Acme Sensor designed for?",
+      "answerable": true,
+      "reference_answer": "It is designed for indoor industrial monitoring.",
+      "required_facts": [
+        [
+          "indoor industrial monitoring",
+          "industrial monitoring"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a Product: Sensor, Category: Monitoring, Stock: 120",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[spec.pdf, page 1, table-1]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.6140748152309233,
+          "distance": 0.6284660682981263
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.47102376753105607,
+          "distance": 1.1230351182524285
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4370934163448616,
+          "distance": 1.2878404537921748
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.4345309723384946,
+          "distance": 1.3013319272003734
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E02",
+      "type": "easy",
+      "question": "Is the Acme Sensor intended for indoor or outdoor use?",
+      "answerable": true,
+      "reference_answer": "It is designed for indoor use.",
+      "required_facts": [
+        [
+          "indoor"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a Product: Sensor, Category: Monitoring, Stock: 120",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.5743582634648382,
+          "distance": 0.7410735835286181
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4535496430665754,
+          "distance": 1.2048303097290993
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.4359291866214015,
+          "distance": 1.2939505559385414
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.42880487721044136,
+          "distance": 1.3320630271405178
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E03",
+      "type": "easy",
+      "question": "What warranty does the device include?",
+      "answerable": true,
+      "reference_answer": "It includes a two-year warranty.",
+      "required_facts": [
+        [
+          "two-year warranty",
+          "two-year"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "answer": "Device Specification two-year warranty.",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 3]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Gateway, Category: Networking, Stock: 55"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.4664011068834985,
+          "distance": 1.144077244331644
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.45270484518702153,
+          "distance": 1.2089447697138733
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4519922059427672,
+          "distance": 1.2124275305017618
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4397070364692649,
+          "distance": 1.2742415223321064
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E04",
+      "type": "easy",
+      "question": "Does the sensor support continuous operation?",
+      "answerable": true,
+      "reference_answer": "Yes, it supports continuous operation.",
+      "required_facts": [
+        [
+          "continuous operation"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a Product: Sensor, Category: Monitoring, Stock: 120",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Sales sheet, row 2]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.4792314663890905,
+          "distance": 1.086674331998256
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.46058606222402976,
+          "distance": 1.1711468974360724
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.42710787555870205,
+          "distance": 1.341328870819567
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.42138217864614025,
+          "distance": 1.373142602311522
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E05",
+      "type": "easy",
+      "question": "Which product category is the Gateway in?",
+      "answerable": true,
+      "reference_answer": "The Gateway is in the Networking category.",
+      "required_facts": [
+        [
+          "gateway"
+        ],
+        [
+          "networking"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "answer": "Product: Gateway, Category: Networking, Stock: 55 Product: Sensor, Category: Monitoring, Stock: 120 Product: Mount, Category: Accessory, Stock: 240",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "contexts": [
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.5699255918929623,
+          "distance": 0.7546150133012626
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4707962149014571,
+          "distance": 1.1240612569693473
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.46764350057208925,
+          "distance": 1.1383810504725398
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.44629465349976016,
+          "distance": 1.240672148228048
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E06",
+      "type": "easy",
+      "question": "How many Mount units are in stock?",
+      "answerable": true,
+      "reference_answer": "There are 240 Mount units in stock.",
+      "required_facts": [
+        [
+          "mount"
+        ],
+        [
+          "240"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "answer": "Product: Mount, Category: Accessory, Stock: 240 Product: Sensor, Category: Monitoring, Stock: 120 Product: Gateway, Category: Networking, Stock: 55",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "contexts": [
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.5473760190708232,
+          "distance": 0.8268977177654053
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4746049461890291,
+          "distance": 1.107015546360768
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4714894996450165,
+          "distance": 1.1209380076394022
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4516179572922536,
+          "distance": 1.2142609341658088
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E07",
+      "type": "easy",
+      "question": "Which region recorded 3,500 in Q3 sales?",
+      "answerable": true,
+      "reference_answer": "East recorded 3,500 in Q3 sales.",
+      "required_facts": [
+        [
+          "east"
+        ],
+        [
+          "3500"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "answer": "Region: East, Q1: 2900, Q2: 3200, Q3: 3500 Region: South, Q1: 3000, Q2: 3400, Q3: 3700 Region: West, Q1: 3500, Q2: 3900, Q3: 4200 Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Sales sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 5]",
+        "[sales.xlsx, Sales sheet, row 2]"
+      ],
+      "contexts": [
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+        "Region: South, Q1: 3000, Q2: 3400, Q3: 3700",
+        "Region: West, Q1: 3500, Q2: 3900, Q3: 4200",
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.5190206503400512,
+          "distance": 0.926705612473842
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.5137024952432712,
+          "distance": 0.9466520199136577
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 5
+          },
+          "score": 0.5121617490376351,
+          "distance": 0.9525081712545408
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.5080948531619868,
+          "distance": 0.9681364488870112
+        }
+      ],
+      "passed": true,
+      "context_precision": 0.8333333333333333,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "E08",
+      "type": "easy",
+      "question": "What category does the Sensor belong to?",
+      "answerable": true,
+      "reference_answer": "The Sensor belongs to the Monitoring category.",
+      "required_facts": [
+        [
+          "sensor"
+        ],
+        [
+          "monitoring"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "answer": "Product: Sensor, Category: Monitoring, Stock: 120 The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a Product: Mount, Category: Accessory, Stock: 240",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 2]"
+      ],
+      "contexts": [
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.5243694168992503,
+          "distance": 0.9070524858472725
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.49860023949094173,
+          "distance": 1.0056147606767591
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4636772645053532,
+          "distance": 1.1566724887121458
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.449105077657572,
+          "distance": 1.2266503982002792
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "T01",
+      "type": "table_cell",
+      "question": "What operating temperature range is listed in the PDF specification table?",
+      "answerable": true,
+      "reference_answer": "The operating temperature range is -10 C to 55 C.",
+      "required_facts": [
+        [
+          "-10 c to 55 c"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "expected_chunk_type": "table",
+      "answer": "Table: Property | Operating Temperature | Value | -10 C to 55 C Operating Temperature | -10 C to 55 C Device Specification Technical Specifications Operating Temperature",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1, table-1]",
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Sales sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "contexts": [
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+        "Region: South, Q1: 3000, Q2: 3400, Q3: 3700"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.5266956646173678,
+          "distance": 0.8986296398062754
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.49212116372388576,
+          "distance": 1.0320199042711151
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4545675390836149,
+          "distance": 1.1998931160283666
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4516264181153217,
+          "distance": 1.214219451937934
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "T02",
+      "type": "table_cell",
+      "question": "What voltage is listed in the PDF specification table?",
+      "answerable": true,
+      "reference_answer": "The listed voltage is 220V.",
+      "required_facts": [
+        [
+          "220v"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "expected_chunk_type": "table",
+      "answer": "Table: Property | Operating Temperature | Value | -10 C to 55 C Voltage | 220V Device Specification Technical Specifications Voltage",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1, table-1]",
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Products sheet, row 2]"
+      ],
+      "contexts": [
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Product: Sensor, Category: Monitoring, Stock: 120"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.4968842694011739,
+          "distance": 1.0125410715963337
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.45776008521615597,
+          "distance": 1.1845504496701504
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.45184741146678814,
+          "distance": 1.213136502771583
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4481854254685138,
+          "distance": 1.2312193640715623
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "T03",
+      "type": "table_cell",
+      "question": "What weight is listed in the PDF specification table?",
+      "answerable": true,
+      "reference_answer": "The listed weight is 4.5 kg.",
+      "required_facts": [
+        [
+          "4.5 kg"
+        ]
+      ],
+      "expected_sources": [
+        "spec.pdf"
+      ],
+      "expected_chunk_type": "table",
+      "answer": "Table: Property | Operating Temperature | Value | -10 C to 55 C Weight | 4.5 kg Device Specification Technical Specifications Weight",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1]"
+      ],
+      "contexts": [
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.488300440286887,
+          "distance": 1.047919513266215
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.44885818721677384,
+          "distance": 1.2278751473838105
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.447088691342983,
+          "distance": 1.236692672758418
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.43855840783891153,
+          "distance": 1.280197989881689
+        }
+      ],
+      "passed": true,
+      "context_precision": 0.75,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "T04",
+      "type": "table_cell",
+      "question": "What were South's Q2 sales in the spreadsheet?",
+      "answerable": true,
+      "reference_answer": "South's Q2 sales were 3400.",
+      "required_facts": [
+        [
+          "south"
+        ],
+        [
+          "3400"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "expected_chunk_type": "excel_row",
+      "answer": "Region: South, Q1: 3000, Q2: 3400, Q3: 3700",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 5]"
+      ],
+      "contexts": [
+        "Region: South, Q1: 3000, Q2: 3400, Q3: 3700",
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+        "Region: West, Q1: 3500, Q2: 3900, Q3: 4200"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4889281159627024,
+          "distance": 1.0452904370839748
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4788633458400427,
+          "distance": 1.0882784382792066
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4743980615977413,
+          "distance": 1.1079344140489662
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 5
+          },
+          "score": 0.47387529726696465,
+          "distance": 1.1102598210276304
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "T05",
+      "type": "table_cell",
+      "question": "What were West's Q1 sales in the spreadsheet?",
+      "answerable": true,
+      "reference_answer": "West's Q1 sales were 3500.",
+      "required_facts": [
+        [
+          "west"
+        ],
+        [
+          "3500"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "expected_chunk_type": "excel_row",
+      "answer": "Region: West, Q1: 3500, Q2: 3900, Q3: 4200",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Sales sheet, row 5]",
+        "[sales.xlsx, Sales sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 3]",
+        "[sales.xlsx, Sales sheet, row 2]"
+      ],
+      "contexts": [
+        "Region: West, Q1: 3500, Q2: 3900, Q3: 4200",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+        "Region: South, Q1: 3000, Q2: 3400, Q3: 3700",
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 5
+          },
+          "score": 0.48390887622309425,
+          "distance": 1.0665047680154034
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.475848044635832,
+          "distance": 1.1015112098764703
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4677174218211321,
+          "distance": 1.1380430861573234
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4664268495637727,
+          "distance": 1.1439589100311303
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "T06",
+      "type": "table_cell",
+      "question": "How many Sensors are in stock according to the Products sheet?",
+      "answerable": true,
+      "reference_answer": "There are 120 Sensors in stock.",
+      "required_facts": [
+        [
+          "sensor"
+        ],
+        [
+          "120"
+        ]
+      ],
+      "expected_sources": [
+        "sales.xlsx"
+      ],
+      "expected_chunk_type": "excel_row",
+      "answer": "Product: Sensor, Category: Monitoring, Stock: 120 Product: Gateway, Category: Networking, Stock: 55 Product: Mount, Category: Accessory, Stock: 240",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 4]"
+      ],
+      "contexts": [
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Product: Mount, Category: Accessory, Stock: 240"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.5522273284912314,
+          "distance": 0.8108484466571971
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.4807357097206792,
+          "distance": 1.0801450355768822
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.47482207959252803,
+          "distance": 1.106052020281275
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.47436925072918196,
+          "distance": 1.1080624396771899
+        }
+      ],
+      "passed": true,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "hit_rate": 1.0,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "correct_refusal": null,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": null,
+      "failure_types": [],
+      "root_cause": null,
+      "recommended_fix": null
+    },
+    {
+      "id": "U01",
+      "type": "unanswerable",
+      "question": "What is the battery capacity of the Acme Sensor?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a Product: Sensor, Category: Monitoring, Stock: 120",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Products sheet, row 4]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Product: Mount, Category: Accessory, Stock: 240"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.5297210334208826,
+          "distance": 0.8877860928838439
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4647680946461457,
+          "distance": 1.1516106882537982
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.44580534656573295,
+          "distance": 1.2431314646706517
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.43485694145368303,
+          "distance": 1.2996068469255673
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U02",
+      "type": "unanswerable",
+      "question": "What is the device's manufacturing date?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "Device Specification",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 3]"
+      ],
+      "contexts": [
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Gateway, Category: Networking, Stock: 55"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.46635028195372424,
+          "distance": 1.1443109154144986
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.46385890148870607,
+          "distance": 1.1558279830151061
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.4599758973044451,
+          "distance": 1.174026956325775
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4467513721599831,
+          "distance": 1.2383814853553416
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U03",
+      "type": "unanswerable",
+      "question": "Who is the chief executive officer of Acme?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.47034718765397343,
+          "distance": 1.12608903858416
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.43722511206856735,
+          "distance": 1.2871513378288668
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.43591104266449093,
+          "distance": 1.2940460372087275
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4354979926828479,
+          "distance": 1.296221835236452
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U04",
+      "type": "unanswerable",
+      "question": "What were North's Q4 sales?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Sales sheet, row 2]",
+        "[sales.xlsx, Sales sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 5]",
+        "[sales.xlsx, Sales sheet, row 3]"
+      ],
+      "contexts": [
+        "Region: North, Q1: 2500, Q2: 2800, Q3: 3100",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500",
+        "Region: West, Q1: 3500, Q2: 3900, Q3: 4200",
+        "Region: South, Q1: 3000, Q2: 3400, Q3: 3700"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.4811837398619062,
+          "distance": 1.0782082127026729
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.4693049711374884,
+          "distance": 1.1308105848020906
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 5
+          },
+          "score": 0.46808891876624403,
+          "distance": 1.1363462365990844
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.4674489811555834,
+          "distance": 1.1392708943934244
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U05",
+      "type": "unanswerable",
+      "question": "What is the retail price of the Gateway?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "Product: Gateway, Category: Networking, Stock: 55",
+      "mode": "mock",
+      "citations": [
+        "[sales.xlsx, Products sheet, row 3]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[sales.xlsx, Products sheet, row 4]",
+        "[sales.xlsx, Sales sheet, row 4]"
+      ],
+      "contexts": [
+        "Product: Gateway, Category: Networking, Stock: 55",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Product: Mount, Category: Accessory, Stock: 240",
+        "Region: East, Q1: 2900, Q2: 3200, Q3: 3500"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.5168623719135222,
+          "distance": 0.9347510175635554
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.45636184224565335,
+          "distance": 1.19124367427221
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.45098797224013815,
+          "distance": 1.2173540350373884
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Sales",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 4
+          },
+          "score": 0.439490886691211,
+          "distance": 1.2753600365383826
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    },
+    {
+      "id": "U06",
+      "type": "unanswerable",
+      "question": "Which employee approved the Sensor warranty?",
+      "answerable": false,
+      "reference_answer": null,
+      "required_facts": [],
+      "expected_sources": [],
+      "answer": "The Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a two-year warranty. Product: Sensor, Category: Monitoring, Stock: 120",
+      "mode": "mock",
+      "citations": [
+        "[spec.pdf, page 1]",
+        "[sales.xlsx, Products sheet, row 2]",
+        "[spec.pdf, page 1, table-1]",
+        "[sales.xlsx, Products sheet, row 3]"
+      ],
+      "contexts": [
+        "Device Specification\nThe Acme Sensor is designed for indoor industrial monitoring. It supports continuous operation and a\ntwo-year warranty.\nTechnical Specifications\n Property\nValue\nOperating Temperature\n-10 C to 55 C\nVoltage\n220V\nWeight\n4.5 kg",
+        "Product: Sensor, Category: Monitoring, Stock: 120",
+        "Table: Property | Operating Temperature | Value | -10 C to 55 C\nOperating Temperature | -10 C to 55 C\nVoltage | 220V\nWeight | 4.5 kg",
+        "Product: Gateway, Category: Networking, Stock: 55"
+      ],
+      "retrieved": [
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "chunk_type": "text"
+          },
+          "score": 0.4841425882074617,
+          "distance": 1.0655071963458134
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 2
+          },
+          "score": 0.48411997376514015,
+          "distance": 1.0656036812997252
+        },
+        {
+          "metadata": {
+            "source": "spec.pdf",
+            "file_type": "pdf",
+            "page": 1,
+            "table_id": "table-1",
+            "chunk_type": "table"
+          },
+          "score": 0.43481099783092475,
+          "distance": 1.2998498312796762
+        },
+        {
+          "metadata": {
+            "source": "sales.xlsx",
+            "file_type": "xlsx",
+            "sheet": "Products",
+            "chunk_type": "excel_row",
+            "serialization": "row_text",
+            "row": 3
+          },
+          "score": 0.43325852325802455,
+          "distance": 1.3080907733336289
+        }
+      ],
+      "passed": false,
+      "context_precision": null,
+      "context_recall": null,
+      "hit_rate": null,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "correct_refusal": false,
+      "judge_score": null,
+      "judge": null,
+      "failure_type": "GENERATION_ERROR",
+      "failure_types": [
+        "GENERATION_ERROR"
+      ],
+      "root_cause": "The question is deliberately unanswerable, but the pipeline returned a substantive answer.",
+      "recommended_fix": "Keep the retrieved evidence fixed and tighten the existing grounded-answer prompt or output validation so the response returns the supported facts without invention."
+    }
+  ]
+}

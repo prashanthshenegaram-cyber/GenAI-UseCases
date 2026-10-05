@@ -1,35 +1,39 @@
-# Evaluation Report
+# Classic RAG evaluation
 
-Dataset size: 5
+- Total questions: 15
+- Overall accuracy: 46.7%
 
-## Field-level Results
+## Accuracy by category
 
-| Version | Precision | Recall | F1 | Accuracy | Hallucinations | Tax Hallucinations |
-|---|---:|---:|---:|---:|---:|---:|
-| v1 | 1.000 | 0.508 | 0.643 | 0.489 | 0 | 0 |
-| v2 | 1.000 | 0.508 | 0.643 | 0.489 | 0 | 0 |
-| v3 | 1.000 | 0.508 | 0.643 | 0.489 | 0 | 0 |
-| v4 | 1.000 | 0.508 | 0.643 | 0.489 | 0 | 0 |
-| v5 | 1.000 | 0.508 | 0.643 | 0.489 | 0 | 0 |
+| Category | Accuracy |
+|---|---:|
+| table-cell | 66.7% |
+| image | 0.0% |
+| text | 100.0% |
+| excel | 28.6% |
 
-## Overall Metrics
+## Observed results
 
-Metrics were calculated from model outputs and ground-truth JSON files.
+The values below were generated from the current local execution. The image/chart category is expected to expose the limitation of text-only PDF extraction; OCR or a vision-capable model is required for reliable image-only facts.
 
-## V1 vs V5 Comparison
+## Chart/image failure analysis
 
-- v1 precision=1.000, recall=0.508, f1=0.643, accuracy=0.489, hallucinations=0, tax_hallucinations=0
-- v5 precision=1.000, recall=0.508, f1=0.643, accuracy=0.489, hallucinations=0, tax_hallucinations=0
+- Q13: success=False; answer=I couldn't find that information in the provided documents.
+- Q15: success=False; answer=Region: North, Q1: 2500, Q2: 2800, Q3: 3100 Region: South, Q1: 3000, Q2: 3400, Q3: 3700 Region: East, Q1: 2900, Q2: 3200, Q3: 3500
 
-## Hallucination Statistics
+## Grounded refusal results
 
-Generated from field-level false positive and tax-specific comparisons. The user should inspect results files for the exact breakdown.
+- Q14: success=True; answer=I couldn't find that information in the provided documents.
 
-## Examples of Failures
+## Retrieval failures
 
-- Missing tax line with tax not supported must be returned as `null`, never as 0 or a calculated value.
-- Unsupported currency must remain `null` when the source document contains no explicit currency.
 
-## Examples Where Later Prompts Fixed Earlier Failures
+## Excel serialization comparison
 
-The report is generated from actual stored metrics in the versioned result files. It should document any observed deltas between version one and version five for the workspace sample dataset.
+| Representation | Accuracy |
+|---|---:|
+| row_text | 46.7% |
+| markdown_table | 46.7% |
+| column_wise | 46.7% |
+
+No winner is hard-coded; the table reflects this execution.

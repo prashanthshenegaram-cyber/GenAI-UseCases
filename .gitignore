@@ -1,5 +1,6 @@
+.venv/
 __pycache__/
 .pytest_cache/
 .env
-.DS_Store
+data/vector_store/
 *.pyc

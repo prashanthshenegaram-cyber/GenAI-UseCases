@@ -1,0 +1,17 @@
+[
+  {"id":"Q01","question":"What is the operating temperature range?","category":"table-cell","expected":"-10 C to 55 C","source":"spec.pdf"},
+  {"id":"Q02","question":"What voltage does the device use?","category":"table-cell","expected":"220V","source":"spec.pdf"},
+  {"id":"Q03","question":"What is the device weight?","category":"table-cell","expected":"4.5 kg","source":"spec.pdf"},
+  {"id":"Q04","question":"What is the warranty period?","category":"text","expected":"two-year","source":"spec.pdf"},
+  {"id":"Q05","question":"What is the device designed for?","category":"text","expected":"industrial monitoring","source":"spec.pdf"},
+  {"id":"Q06","question":"Which region had the highest Q3 sales?","category":"excel","expected":"West|4200","source":"sales.xlsx"},
+  {"id":"Q07","question":"What were West Q1 sales?","category":"excel","expected":"West|3500","source":"sales.xlsx"},
+  {"id":"Q08","question":"What were South Q2 sales?","category":"excel","expected":"South|3400","source":"sales.xlsx"},
+  {"id":"Q09","question":"How much stock does the Sensor have?","category":"excel","expected":"Sensor|120","source":"sales.xlsx"},
+  {"id":"Q10","question":"What category is the Gateway?","category":"excel","expected":"Gateway|Networking","source":"sales.xlsx"},
+  {"id":"Q11","question":"What are East Q1 sales?","category":"excel","expected":"East|2900","source":"sales.xlsx"},
+  {"id":"Q12","question":"What were North Q3 sales?","category":"excel","expected":"North|3100","source":"sales.xlsx"},
+  {"id":"Q13","question":"What are the Q3 chart sales for West?","category":"image","expected":"West|4200","source":"spec.pdf"},
+  {"id":"Q14","question":"What is the battery capacity?","category":"text","expected":"I couldn't find","source":"none"},
+  {"id":"Q15","question":"Which region had the highest Q3 sales in the chart?","category":"image","expected":"West|4200","source":"spec.pdf"}
+]

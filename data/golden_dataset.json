@@ -1,0 +1,188 @@
+[
+  {
+    "id": "E01",
+    "type": "easy",
+    "question": "What is the Acme Sensor designed for?",
+    "answerable": true,
+    "reference_answer": "It is designed for indoor industrial monitoring.",
+    "required_facts": [["indoor industrial monitoring", "industrial monitoring"]],
+    "expected_sources": ["spec.pdf"]
+  },
+  {
+    "id": "E02",
+    "type": "easy",
+    "question": "Is the Acme Sensor intended for indoor or outdoor use?",
+    "answerable": true,
+    "reference_answer": "It is designed for indoor use.",
+    "required_facts": [["indoor"]],
+    "expected_sources": ["spec.pdf"]
+  },
+  {
+    "id": "E03",
+    "type": "easy",
+    "question": "What warranty does the device include?",
+    "answerable": true,
+    "reference_answer": "It includes a two-year warranty.",
+    "required_facts": [["two-year warranty", "two-year"]],
+    "expected_sources": ["spec.pdf"]
+  },
+  {
+    "id": "E04",
+    "type": "easy",
+    "question": "Does the sensor support continuous operation?",
+    "answerable": true,
+    "reference_answer": "Yes, it supports continuous operation.",
+    "required_facts": [["continuous operation"]],
+    "expected_sources": ["spec.pdf"]
+  },
+  {
+    "id": "E05",
+    "type": "easy",
+    "question": "Which product category is the Gateway in?",
+    "answerable": true,
+    "reference_answer": "The Gateway is in the Networking category.",
+    "required_facts": [["gateway"], ["networking"]],
+    "expected_sources": ["sales.xlsx"]
+  },
+  {
+    "id": "E06",
+    "type": "easy",
+    "question": "How many Mount units are in stock?",
+    "answerable": true,
+    "reference_answer": "There are 240 Mount units in stock.",
+    "required_facts": [["mount"], ["240"]],
+    "expected_sources": ["sales.xlsx"]
+  },
+  {
+    "id": "E07",
+    "type": "easy",
+    "question": "Which region recorded 3,500 in Q3 sales?",
+    "answerable": true,
+    "reference_answer": "East recorded 3,500 in Q3 sales.",
+    "required_facts": [["east"], ["3500"]],
+    "expected_sources": ["sales.xlsx"]
+  },
+  {
+    "id": "E08",
+    "type": "easy",
+    "question": "What category does the Sensor belong to?",
+    "answerable": true,
+    "reference_answer": "The Sensor belongs to the Monitoring category.",
+    "required_facts": [["sensor"], ["monitoring"]],
+    "expected_sources": ["sales.xlsx"]
+  },
+  {
+    "id": "T01",
+    "type": "table_cell",
+    "question": "What operating temperature range is listed in the PDF specification table?",
+    "answerable": true,
+    "reference_answer": "The operating temperature range is -10 C to 55 C.",
+    "required_facts": [["-10 c to 55 c"]],
+    "expected_sources": ["spec.pdf"],
+    "expected_chunk_type": "table"
+  },
+  {
+    "id": "T02",
+    "type": "table_cell",
+    "question": "What voltage is listed in the PDF specification table?",
+    "answerable": true,
+    "reference_answer": "The listed voltage is 220V.",
+    "required_facts": [["220v"]],
+    "expected_sources": ["spec.pdf"],
+    "expected_chunk_type": "table"
+  },
+  {
+    "id": "T03",
+    "type": "table_cell",
+    "question": "What weight is listed in the PDF specification table?",
+    "answerable": true,
+    "reference_answer": "The listed weight is 4.5 kg.",
+    "required_facts": [["4.5 kg"]],
+    "expected_sources": ["spec.pdf"],
+    "expected_chunk_type": "table"
+  },
+  {
+    "id": "T04",
+    "type": "table_cell",
+    "question": "What were South's Q2 sales in the spreadsheet?",
+    "answerable": true,
+    "reference_answer": "South's Q2 sales were 3400.",
+    "required_facts": [["south"], ["3400"]],
+    "expected_sources": ["sales.xlsx"],
+    "expected_chunk_type": "excel_row"
+  },
+  {
+    "id": "T05",
+    "type": "table_cell",
+    "question": "What were West's Q1 sales in the spreadsheet?",
+    "answerable": true,
+    "reference_answer": "West's Q1 sales were 3500.",
+    "required_facts": [["west"], ["3500"]],
+    "expected_sources": ["sales.xlsx"],
+    "expected_chunk_type": "excel_row"
+  },
+  {
+    "id": "T06",
+    "type": "table_cell",
+    "question": "How many Sensors are in stock according to the Products sheet?",
+    "answerable": true,
+    "reference_answer": "There are 120 Sensors in stock.",
+    "required_facts": [["sensor"], ["120"]],
+    "expected_sources": ["sales.xlsx"],
+    "expected_chunk_type": "excel_row"
+  },
+  {
+    "id": "U01",
+    "type": "unanswerable",
+    "question": "What is the battery capacity of the Acme Sensor?",
+    "answerable": false,
+    "reference_answer": null,
+    "required_facts": [],
+    "expected_sources": []
+  },
+  {
+    "id": "U02",
+    "type": "unanswerable",
+    "question": "What is the device's manufacturing date?",
+    "answerable": false,
+    "reference_answer": null,
+    "required_facts": [],
+    "expected_sources": []
+  },
+  {
+    "id": "U03",
+    "type": "unanswerable",
+    "question": "Who is the chief executive officer of Acme?",
+    "answerable": false,
+    "reference_answer": null,
+    "required_facts": [],
+    "expected_sources": []
+  },
+  {
+    "id": "U04",
+    "type": "unanswerable",
+    "question": "What were North's Q4 sales?",
+    "answerable": false,
+    "reference_answer": null,
+    "required_facts": [],
+    "expected_sources": []
+  },
+  {
+    "id": "U05",
+    "type": "unanswerable",
+    "question": "What is the retail price of the Gateway?",
+    "answerable": false,
+    "reference_answer": null,
+    "required_facts": [],
+    "expected_sources": []
+  },
+  {
+    "id": "U06",
+    "type": "unanswerable",
+    "question": "Which employee approved the Sensor warranty?",
+    "answerable": false,
+    "reference_answer": null,
+    "required_facts": [],
+    "expected_sources": []
+  }
+]
