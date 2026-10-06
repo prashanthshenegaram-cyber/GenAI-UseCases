@@ -1,0 +1,115 @@
+{
+  "request": "I want 2 casual shirts and 1 pair of sneakers, deliver to 500001.",
+  "prior_order_state": {
+    "items": [],
+    "subtotal": 0,
+    "discount": 0,
+    "final_total": 0,
+    "destination_pin": null
+  },
+  "steps": [
+    {
+      "step": 1,
+      "selected_tool": "check_stock",
+      "tool_input": {
+        "product_id": "SH-02",
+        "quantity": 2
+      },
+      "tool_output": {
+        "product_id": "SH-02",
+        "product_name": "Casual Shirt",
+        "requested_quantity": 2,
+        "available_quantity": 8,
+        "in_stock": true,
+        "unit_price": 899
+      },
+      "state_update": "Committed 2 additional unit(s) of Casual Shirt.",
+      "next_action": "check_next_item"
+    },
+    {
+      "step": 2,
+      "selected_tool": "check_stock",
+      "tool_input": {
+        "product_id": "SN-03",
+        "quantity": 1
+      },
+      "tool_output": {
+        "product_id": "SN-03",
+        "product_name": "Sneakers",
+        "requested_quantity": 1,
+        "available_quantity": 5,
+        "in_stock": true,
+        "unit_price": 2499
+      },
+      "state_update": "Committed 1 additional unit(s) of Sneakers.",
+      "next_action": "recalculate_committed_order"
+    },
+    {
+      "step": 3,
+      "selected_tool": "price_order",
+      "tool_input": {
+        "items": [
+          {
+            "product_id": "SH-02",
+            "quantity": 2
+          },
+          {
+            "product_id": "SN-03",
+            "quantity": 1
+          }
+        ]
+      },
+      "tool_output": {
+        "items": [
+          {
+            "product_id": "SH-02",
+            "product_name": "Casual Shirt",
+            "quantity": 2,
+            "unit_price": 899,
+            "line_total": 1798
+          },
+          {
+            "product_id": "SN-03",
+            "product_name": "Sneakers",
+            "quantity": 1,
+            "unit_price": 2499,
+            "line_total": 2499
+          }
+        ],
+        "subtotal": 4297,
+        "discount_percent": 10,
+        "discount_amount": 430,
+        "final_total": 3867,
+        "currency": "INR"
+      },
+      "state_update": "Updated subtotal, discount, and total from committed order items.",
+      "next_action": "estimate_delivery"
+    },
+    {
+      "step": 4,
+      "selected_tool": "delivery_eta",
+      "tool_input": {
+        "destination_pin": "500001"
+      },
+      "tool_output": {
+        "destination_pin": "500001",
+        "estimated_delivery_days": 2,
+        "eta": "approximately 2 days",
+        "valid_pin": true,
+        "used_default": false
+      },
+      "state_update": "Saved delivery estimate of 2 day(s).",
+      "next_action": "finalize_response"
+    },
+    {
+      "step": 5,
+      "selected_tool": null,
+      "tool_input": null,
+      "tool_output": null,
+      "state_update": "Marked this user turn complete.",
+      "next_action": "stop"
+    }
+  ],
+  "final_response": "2 Casual Shirts = ₹1,798, 1 Sneakers = ₹2,499. Subtotal ₹4,297, discount ₹430. Total = ₹3,867. Delivery to 500001 in approximately 2 days.",
+  "stop_reason": "request_answered"
+}

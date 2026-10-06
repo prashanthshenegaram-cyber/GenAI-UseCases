@@ -1,0 +1,8 @@
+{
+  "pin_delivery_days": {
+    "700001": 3,
+    "500001": 2,
+    "110001": 4
+  },
+  "default_delivery_days": 5
+}

@@ -1,0 +1,38 @@
+{
+  "request": "I want 1 mystery widget, deliver to PIN 999999.",
+  "prior_order_state": {
+    "items": [],
+    "subtotal": 0,
+    "discount": 0,
+    "final_total": 0,
+    "destination_pin": null
+  },
+  "steps": [
+    {
+      "step": 1,
+      "selected_tool": "delivery_eta",
+      "tool_input": {
+        "destination_pin": "999999"
+      },
+      "tool_output": {
+        "destination_pin": "999999",
+        "estimated_delivery_days": 5,
+        "eta": "approximately 5 days",
+        "valid_pin": true,
+        "used_default": true
+      },
+      "state_update": "Saved delivery estimate of 5 day(s).",
+      "next_action": "finalize_response"
+    },
+    {
+      "step": 2,
+      "selected_tool": null,
+      "tool_input": null,
+      "tool_output": null,
+      "state_update": "Marked this user turn complete.",
+      "next_action": "stop"
+    }
+  ],
+  "final_response": "I couldn't identify a product in that request. Please use a product name or ID. Delivery to 999999 in approximately 5 days.",
+  "stop_reason": "request_answered"
+}

@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "product_id": "TS-01",
+      "product_name": "Cotton T-Shirt",
+      "unit_price": 499,
+      "stock": 12,
+      "aliases": ["t-shirt", "t-shirts", "tee", "tees", "cotton t-shirts"]
+    },
+    {
+      "product_id": "JN-04",
+      "product_name": "Denim Jeans",
+      "unit_price": 1499,
+      "stock": 0,
+      "aliases": ["jeans", "denim jean"]
+    },
+    {
+      "product_id": "SH-02",
+      "product_name": "Casual Shirt",
+      "unit_price": 899,
+      "stock": 8,
+      "aliases": ["shirt", "shirts", "casual shirts"]
+    },
+    {
+      "product_id": "SN-03",
+      "product_name": "Sneakers",
+      "unit_price": 2499,
+      "stock": 5,
+      "aliases": ["sneaker", "shoes", "trainers"]
+    }
+  ]
+}

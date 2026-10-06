@@ -1,0 +1,7 @@
+{
+  "currency": "INR",
+  "rules": [
+    {"minimum_subtotal": 3000, "percent": 10},
+    {"minimum_subtotal": 1500, "percent": 5}
+  ]
+}

@@ -1,2 +1,1 @@
-"""Invoice and receipt extraction package."""
-"""Invoice / Receipt Field Extractor project package."""
+"""Source package for the Store Assistant Agent application."""

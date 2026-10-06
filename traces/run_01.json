@@ -1,0 +1,86 @@
+{
+  "request": "I want 3 cotton t-shirts, deliver to 700001. Total?",
+  "prior_order_state": {
+    "items": [],
+    "subtotal": 0,
+    "discount": 0,
+    "final_total": 0,
+    "destination_pin": null
+  },
+  "steps": [
+    {
+      "step": 1,
+      "selected_tool": "check_stock",
+      "tool_input": {
+        "product_id": "TS-01",
+        "quantity": 3
+      },
+      "tool_output": {
+        "product_id": "TS-01",
+        "product_name": "Cotton T-Shirt",
+        "requested_quantity": 3,
+        "available_quantity": 12,
+        "in_stock": true,
+        "unit_price": 499
+      },
+      "state_update": "Committed 3 additional unit(s) of Cotton T-Shirt.",
+      "next_action": "recalculate_committed_order"
+    },
+    {
+      "step": 2,
+      "selected_tool": "price_order",
+      "tool_input": {
+        "items": [
+          {
+            "product_id": "TS-01",
+            "quantity": 3
+          }
+        ]
+      },
+      "tool_output": {
+        "items": [
+          {
+            "product_id": "TS-01",
+            "product_name": "Cotton T-Shirt",
+            "quantity": 3,
+            "unit_price": 499,
+            "line_total": 1497
+          }
+        ],
+        "subtotal": 1497,
+        "discount_percent": 0,
+        "discount_amount": 0,
+        "final_total": 1497,
+        "currency": "INR"
+      },
+      "state_update": "Updated subtotal, discount, and total from committed order items.",
+      "next_action": "estimate_delivery"
+    },
+    {
+      "step": 3,
+      "selected_tool": "delivery_eta",
+      "tool_input": {
+        "destination_pin": "700001"
+      },
+      "tool_output": {
+        "destination_pin": "700001",
+        "estimated_delivery_days": 3,
+        "eta": "approximately 3 days",
+        "valid_pin": true,
+        "used_default": false
+      },
+      "state_update": "Saved delivery estimate of 3 day(s).",
+      "next_action": "finalize_response"
+    },
+    {
+      "step": 4,
+      "selected_tool": null,
+      "tool_input": null,
+      "tool_output": null,
+      "state_update": "Marked this user turn complete.",
+      "next_action": "stop"
+    }
+  ],
+  "final_response": "3 Cotton T-Shirts = ₹1,497. Total = ₹1,497. Delivery to 700001 in approximately 3 days.",
+  "stop_reason": "request_answered"
+}
